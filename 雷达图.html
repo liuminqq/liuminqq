@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/vintage.js"></script>
+</head>
+<body>
+     <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="main" style="width: 1500px;height:700px;"></div>
+    <script type="text/javascript">
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'),'vintage');
+
+      // 指定图表的配置项和数据
+      option = {
+  title: {
+    text: 'Basic Radar Chart'
+  },
+  legend: {
+    data: ['华为', '小米']
+  },
+  radar: {
+    shape: 'circle',
+    indicator: [
+      { name: '续航', max: 100 },
+      { name: '像素', max: 500 },
+      { name: '音质', max: 100},
+      { name: '功能', max: 100 },
+      { name: '性价比', max: 100 },
+      { name: '外观', max: 100}
+    ]
+  },
+  series: [
+    {
+      name: 'Budget vs spending',
+      type: 'radar',
+      data: [
+        {
+          value: [90, 300, 94, 97, 80, 99],
+          name: '华为'
+        },
+        {
+          value: [80, 80, 89, 90, 92, 81],
+          name: '小米'
+        }
+      ],
+      label:{
+        show:true
+      },
+      linestyle:{
+        width:9
+      },
+      areastyle:{}    },
+  ]
+};
+      // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    </script>
+</body>
+</html>
